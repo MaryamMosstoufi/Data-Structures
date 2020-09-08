@@ -11,26 +11,52 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
+from singly_linked_list import SinglyLinkedList
+import sys
+sys.path.append('../singly_linked_list/')
+
+
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return self.size
+
+#     def push(self, value):
+#         self.size += 1
+#         self.storage.append(value)
+#         return
+
+#     def pop(self):
+#         self.size = len(self.storage)
+#         if self.size > 0:
+#             item = self.storage[self.size-1]
+#             self.storage.pop(self.size-1)
+#             self.size -= 1
+#             return item
+#         else:
+#             return None
+
 
 class Stack:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = SinglyLinkedList()
 
     def __len__(self):
         return self.size
 
     def push(self, value):
-        self.size += 1
         self.storage.append(value)
-        return
+        self.size += 1
 
     def pop(self):
         self.size = len(self.storage)
         if self.size > 0:
-            top = self.storage[self.size-1]
-            self.storage.pop(self.size-1)
+            item = self.storage.remove_last()
             self.size -= 1
+            return item
         else:
-            top = None
-        return top
+            None
