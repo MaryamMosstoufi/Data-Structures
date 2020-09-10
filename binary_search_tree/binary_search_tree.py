@@ -19,7 +19,7 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        if value > self.value:
+        if value >= self.value:
             if self.right == None:
                 self.right = BSTNode(value)
                 return value
